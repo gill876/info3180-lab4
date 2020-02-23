@@ -4,8 +4,8 @@ import os
 load_dotenv(verbose=True)
 
 # Config Values
-USERNAME = os.getenv("USERNAME")
-PASSWORD = os.getenv("PASSWORD")
+USERNAME='admin'
+PASSWORD='password123'
 UPLOAD_FOLDER = os.getenv("UPLOAD_FOLDER")
 
 # SECRET_KEY is needed for session security, the flash() method in this case stores the message in a session

@@ -77,6 +77,33 @@ def logout():
     flash('You were logged out', 'success')
     return redirect(url_for('home'))
 
+@app.route('/files')
+def files():
+    if not session.get('logged_in'):
+        abort(401)
+    images = get_uploaded_images()
+
+    return render_template('files.html', images=images)
+
+def get_uploaded_images():
+    rootdir = os.getcwd()
+    #return rootdir
+    images = []
+    for subdir, dirs, files in os.walk(rootdir + '/app/static/uploads'):
+        for file in files:
+            #test.append(os.path.join(subdir, file))
+            if ".gitkeep" not in file:
+                images.append(file)
+    return images
+
+##
+#Test routes
+##
+@app.route('/test')
+def test1():
+    test1 = get_uploaded_images()
+    return render_template('test.html', test1=test1)
+
 
 ###
 # The functions below should be applicable to all Flask apps.
