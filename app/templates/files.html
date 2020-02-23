@@ -3,9 +3,9 @@
 {% block main %}
     {% include 'flash_messages.html' %}
 
-    <ul>
+    <div id="container-imgs">
         {% for image in images %}
-            <li><img src="{{ url_for('static', filename='uploads/' + image) }}" alt=""></li>
+            <div><img src="{{ url_for('static', filename='uploads/' + image) }}" alt="Random Image previously uploaded"></div>
         {% endfor %}
-    </ul>
+    </div>
 {% endblock %}
